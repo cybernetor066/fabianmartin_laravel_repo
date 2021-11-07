@@ -1,0 +1,136 @@
+version: '3.7'
+
+services:
+
+  # PHP Service
+  php:
+    build:
+      context: https://github.com/cybernetor066/fabianmartin_laravel_repo.git#developer03
+      args:
+        - --f=/php/Dockerfile
+    container_name: laravel-php
+    # networks:
+    #   - backend
+    volumes:
+      - ./public_html:/var/www/html
+      - ./apache2/log:/var/log/apache2
+
+  # myapp:
+  #   tty: true
+  #   image: /bitnami/laravel:8
+  #   environment:
+  #     - DB_HOST=mariadb
+  #     - DB_USERNAME=my_user
+  #     - DB_DATABASE=my_database
+  #     - DB_PASSWORD=my_password
+  #   depends_on:
+  #     - mariadb
+  #   ports:
+  #     - 3000:3000
+  #   volumes:
+  #     - ./:/app
+  #   # privileged: true # Privileged mode could be required to run this container under Windows
+
+
+  # # Apache Service
+  # apache:
+  #   build: './apache2/'
+  #   container_name: laravel-apache
+  #   depends_on:
+  #     - php
+  #     - pgsql
+  #   # networks:
+  #   #   - frontend
+  #   #   - backend
+  #   ports:
+  #     - "8080:80"
+  #     - "443:443"
+  #   volumes:
+  #     - ./public_html:/var/www/html
+  #     - ./apache2/log:/var/log/apache2
+
+  # #PostgreSQL Service
+  # pgsql:
+  #   image: postgres:12.0-alpine
+  #   container_name: laravel-pgsql
+  #   working_dir: /data/pgsql
+  #   volumes:
+  #   - ./postgresql-data:/var/lib/postgresql/data
+  #   environment:
+  #     POSTGRES_USER: pguser
+  #     POSTGRES_PASSWORD: pgpwd
+  #     POSTGRES_DB: pgdb
+  #   ports:
+  #     - 5431:5432
+  #   # networks:
+  #   #   - backend
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# version: '2'
+
+# services:
+#   mariadb:
+#     image: docker.io/bitnami/mariadb:10.6
+#     environment:
+#       # ALLOW_EMPTY_PASSWORD is recommended only for development.
+#       - ALLOW_EMPTY_PASSWORD=yes
+#       - MARIADB_USER=my_user
+#       - MARIADB_DATABASE=my_database
+#       - MARIADB_PASSWORD=my_password
+
+#   myapp:
+#     tty: true
+#     image: docker.io/bitnami/laravel:8
+#     environment:
+#       - DB_HOST=mariadb
+#       - DB_USERNAME=my_user
+#       - DB_DATABASE=my_database
+#       - DB_PASSWORD=my_password
+#     depends_on:
+#       - mariadb
+#     ports:
+#       - 3000:3000
+#     volumes:
+#       - ./:/app
+#     # privileged: true # Privileged mode could be required to run this container under Windows
+
+
+
