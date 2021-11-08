@@ -36,5 +36,8 @@ RUN apk add --no-cache --virtual .deps \
                 imagemagick-libs \
                 imagemagick-dev
                 
+
+COPY /public_html/ /var/www/html/
+
 # Imagick https://github.com/docker-library/php/issues/794
 # RUN su - devuser && cd /var/www/html && composer install && php artisan key:generate
