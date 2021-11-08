@@ -9,8 +9,8 @@ services:
       dockerfile: php/Dockerfile
       # args: ["", ""]
     container_name: laravel-php
-    # networks:
-    #   - backend
+    networks:
+      - backend
     volumes:
       - ./public_html:/var/www/html
       - ./apache2/log:/var/log/apache2
@@ -41,9 +41,9 @@ services:
     depends_on:
       - php
       - pgsql
-    # networks:
-    #   - frontend
-    #   - backend
+    networks:
+      - frontend
+      - backend
     ports:
       - "8080:80"
       - "443:443"
@@ -64,8 +64,8 @@ services:
       POSTGRES_DB: pgdb
     ports:
       - 5431:5432
-    # networks:
-    #   - backend
+    networks:
+      - backend
 
 
 
