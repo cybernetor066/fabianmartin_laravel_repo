@@ -19,6 +19,7 @@ RUN addgroup devuser root
 
 RUN chgrp -R  www-data /var/www/html
 RUN chmod -R g+r /var/www/html/
+RUN chown -R www-data:www-data *
 
 RUN apt-get update \
     && apt-get -y --no-install-recommends install  php7.4-pgsql php7.4-gd php-redis \
@@ -37,7 +38,9 @@ RUN apk add --no-cache --virtual .deps \
                 imagemagick-dev
                 
 
+RUN cd /var/www/html && composer update && composer install
+# RUN cd /var/www/html && composer update && composer install && php artisan key:generate
 
                 
 # Imagick https://github.com/docker-library/php/issues/794
-RUN su - devuser && cd /var/www/html && composer install && php artisan key:generate
+# RUN su - devuser && cd /var/www/html && composer install && php artisan key:generate

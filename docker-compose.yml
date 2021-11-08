@@ -11,8 +11,8 @@ services:
     container_name: laravel-php
     # networks:
     #   - backend
-    networks:
-      - custom-network
+    # networks:
+    #   - custom-network
     volumes:
       - ./public_html:/var/www/html
       - ./apache2/log:/var/log/apache2
@@ -46,8 +46,8 @@ services:
     # networks:
     #   - frontend
     #   - backend
-    networks:
-      - custom-network
+    # networks:
+    #   - custom-network
     ports:
       - "8080:80"
       - "443:443"
@@ -70,14 +70,14 @@ services:
       - 5431:5432
     # networks:
     #   - backend
-    networks:
-      - custom-network
+    # networks:
+    #   - custom-network
 
 
 
-networks:
-  custom-network:
-    driver: bridge
+# networks:
+#   custom-network:
+#     driver: bridge
 
 
 
