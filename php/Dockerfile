@@ -38,10 +38,30 @@ RUN apk add --no-cache --virtual .deps \
                 imagemagick-dev
                 
 
+
+
+# RUN set -ex \
+#     && apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS imagemagick-dev libtool \
+#     && export CFLAGS="$PHP_CFLAGS" CPPFLAGS="$PHP_CPPFLAGS" LDFLAGS="$PHP_LDFLAGS" \
+#     && pecl install imagick-3.4.3 \
+#     && docker-php-ext-enable imagick \
+#     && apk add --no-cache --virtual .imagick-runtime-deps imagemagick \
+#     && apk del .phpize-deps
+
+ADD https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/master/install-php-extensions /usr/local/bin/
+
+RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && \
+    install-php-extensions imagick
+
+
+
+
+
+
 RUN cd /var/www/html && composer update && composer install
 # RUN cd /var/www/html && composer update && composer install && php artisan key:generate
 
-RUN apt install php7.4-imagick
+
 
                 
 # Imagick https://github.com/docker-library/php/issues/794
