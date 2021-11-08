@@ -35,7 +35,8 @@ RUN apk add --no-cache --virtual .deps \
                 imagemagick \
                 imagemagick-libs \
                 imagemagick-dev
-                
+
+WORKDIR /var/www/html         
 
 COPY public_html .
 
