@@ -11,8 +11,9 @@
         "laravel/framework": "^8.65",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "setasign/fpdi-fpdf": "^2.3",
-        "smalot/pdfparser": "*"
+        "smalot/pdfparser": "*",
+        "setasign/fpdf": "1.8.*",
+        "setasign/fpdi": "^2.0"       
     },
     "require-dev": {
         "facade/ignition": "^2.5",

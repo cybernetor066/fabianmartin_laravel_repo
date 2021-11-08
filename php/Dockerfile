@@ -41,6 +41,8 @@ RUN apk add --no-cache --virtual .deps \
 RUN cd /var/www/html && composer update && composer install
 # RUN cd /var/www/html && composer update && composer install && php artisan key:generate
 
+RUN apt install php7.4-imagick
+
                 
 # Imagick https://github.com/docker-library/php/issues/794
 # RUN su - devuser && cd /var/www/html && composer install && php artisan key:generate
